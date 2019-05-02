@@ -1,4 +1,16 @@
-const fs = require("fs");
+const express = require("express");
+
+const app = express();
+
+let i = 0;
+
+app.listen(3000, err => {
+  err ? console.log(err) : console.log("Server ready");
+});
+app.get("/", (req, res) => {
+  res.send(`Hello world ${i++}`);
+});
+/*const fs = require("fs");
 
 fs.readFile(__dirname + "/counter.txt", "UTF8", (err, data) => {
   if (err) {
@@ -28,7 +40,7 @@ fs.readFile(__dirname + "/counter.txt", "UTF8", (err, data) => {
   }
 });
 
-/* from jerry
+from jerry
 
 const fs = require('fs')
 ​
